@@ -1,0 +1,36 @@
+//------------- STD MATH ------------- //
+
+@min(a, b){
+// "Returns smallest of two integers a, b"
+  if(a < b){
+    return a;
+  } else {
+    return b;
+  }
+}
+
+@max(a, b){
+// "Returns largest of two integers a, b"
+  if(a > b){
+    return a;
+  } else {
+    return b;
+  }
+}
+
+@pow(base, exp){
+// "Returns base 'base' to the power of 'exp'"
+  if exp == 0 {
+    return 1;  
+  }
+
+  @i = 1;
+  @res = base;
+  while(i < exp){
+    res = res * base;
+    i = i + 1;
+  }
+  return res;
+}
+
+//------------- END MATH ------------- //

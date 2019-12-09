@@ -1,0 +1,41 @@
+@assert_equal(lhs, rhs){
+    if(lhs == rhs){
+        pring("\033[0;32m");
+        pring("Assert equal ");
+        print(lhs);
+        pring(" == ");
+        print(rhs);
+        pring(" PASSED");
+    } else {
+        pring("\033[0;31m");
+        pring("Assert equal ");
+        print(lhs);
+        pring(" == ");
+        print(rhs);
+        pring(" FAILED. lhs = ");
+        print(lhs);
+        pring(", rhs = ");
+        print(rhs);
+    }
+    pring("\033[0m");
+    pring("\n");
+}
+
+
+
+>>@main(){
+    assert_equal(10, 10);
+
+    @a = 15;
+    assert_equal(a, 15);
+
+    @b = 15;
+    assert_equal(a, b);
+
+    a = a + 1;
+    assert_equal(a, b); // WILL FAIL, obviously
+
+    b = 16;
+    assert_equal(a, b);
+    
+}

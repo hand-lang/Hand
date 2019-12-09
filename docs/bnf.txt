@@ -1,0 +1,140 @@
+<program> ::= <function_definition> <function_definitions>
+            | <start_function_definition> <function_definitions>
+
+<stmts> ::= <stmt> <stmts>
+         | £
+
+<stmt> ::=  <function_definition>
+        |  <conditional>
+        |  <loop>
+        |  <expr_line> <end>
+        |  <compound>
+
+<function_definitions> ::= <function_definition> <function_definitions>
+                         | <start_function_definition> <function_definitions>
+                         | £
+
+<function_definition> ::= @ <word> ( <optional_params> ) <compound>
+
+<start_function_definition> ::= >> @ <word> ( <optional_params> ) <compound>
+
+
+<loop> ::= while <conditional_body> <compound>
+
+<jump> ::= jump <word>
+
+<conditional> ::= if <conditional_body> <compound> <condition_compliment>
+
+<conditional_body> ::= (<expr_part>)
+                     |  <expr_part>
+
+<conditional_compliment> ::= else <conditional>
+                           | else <compound>
+                           | else if <elseif_block>
+                           | £
+<elseif_block> ::= <conditional_body> <compound> <condition_compliment>
+
+<compound> ::= { <stmts> }
+             | do <stmts> end
+
+
+ <expr_line> ::= <expr> <end>
+
+ <expr> ::= <func_call>
+          | <assignment>
+          | <return>
+
+<return> ::= return <expr_part>
+
+ <assignment> ::= @ <word> = <expr_part> 
+                | <word> = <expr_part>             
+
+ <expr_part> ::= <logical>
+
+
+//============ Arithemtic =================
+ <arithmetic> ::= <term>
+
+ <term> ::= <term> + <product>
+          | <term> - <product>
+          | <product>
+
+ <product> ::= <product> * <factor>
+             | <product> / <factor>
+             | <factor>
+//============ END Arithmetic ==============
+
+
+// ============== Comparison =============
+ <comparison> ::= <comparison> <comparator> <comp_fac>
+                | <comp_fac> // allt som i precedence mindre än comparison
+
+
+ <comp_fac> ::= <arithmetic> 
+
+ <comparator> ::= "==" | "<=" | ">=" | ">" | "<"
+// ============== End comparison ==========
+
+
+// ============== Logical ============
+ <logical> ::= <logical> <log_op> <log_fac>
+             | <log_fac>
+
+ <log_fac> ::= <comparison>
+
+ <log_op> ::= "&&" 
+            | "||" 
+            | "!"
+// ============== End logical =========
+
+
+
+// ============== Func_call ===============
+ <func_call> ::= <word> ( <optional_params> )
+
+ <optional_params> ::= <params> 
+                     | £
+
+ <params> ::= <factor> <params'>
+
+ <params'> ::= ,<params>
+             | £
+// ============== END func_call =============
+
+
+// =========== Shared ================
+  <factor> ::= <word>
+             | (<expr_part>)
+             | (assignment)
+             | <func_call>
+             | <literal_string>
+             | <number>
+             | <signed_number>
+
+<non_zero_digit> ::= 1...9
+
+<digit> ::= <non_zero_digit>
+          | <null>
+
+<word>  ::= <char> <word'>
+
+<word'> ::= <char> <word'>
+           | £
+
+<char> ::= a..z
+
+<null> ::= 0
+
+<number'> ::= <digit> <number>
+            | £
+           
+<number>  ::= <null> 
+            | <non_zero_digit> <number'>
+
+<literal_string> ::= "<word>"
+
+<signed_number> ::= <sign><number>
+<sign> ::= - | £
+
+<end>   ::= ;
+//=========== END Shared =============

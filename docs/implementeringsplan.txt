@@ -1,0 +1,6 @@
+-Kompilerat språk (helst)
+	-Ska kompileras till c++
+-Statiskt typat
+
+
+Basklass object som alla klasser/datatyper ärver från?

@@ -1,0 +1,20 @@
+
+
+    OR:
+a || b = cmp a, 0 ; bne ; cmp b, 0 ; beq ;
+       ; if false cont  ; if false leave ;
+a || b || c = cmp a, 0 ; bne ; cmp b, 0 ; bne ; cmp c, 0 ; beq ;
+            ; >if false cont ; if false cont  ; if false leave ;
+
+
+    AND:
+a && b = cmp a, 0 ; beq ; cmp b, 0 ; beq ;
+       ; if false leave ; if false leave ;
+a && b && c = cmp a, 0 ; beq ; cmp b, 0 ; beq ; cmp c, 0 ; beq ;
+            ; if false leave ; if false leave ; if false leave ;
+
+
+    MIX:
+a && b || c && d = cmp a, 0 ; beq ; cmp b, 0 ; bne ; cmp c, 0 ; beq ; cmp d, 0 ; beq ;
+                 ; if false leave ; if false cont  ; if false leave ; if false leave ;
+                                  ; impl prev is T ;                ; impl prev is T ;

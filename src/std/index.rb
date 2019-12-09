@@ -1,0 +1,1 @@
+require_relative 'std_print'

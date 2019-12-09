@@ -1,0 +1,23 @@
+
+@ess(aa, bb) {
+    @m = aa;
+    m = aa * 3;
+    m = 1;
+}
+
+>>@apa(){
+    @b = 2;
+    @i = 1 + 1;
+    @a = 200000;
+    @res = (b + a * (45 / a) + 22 * 8) * 10;
+    develop();
+    print(res);
+}
+
+
+@develop() {
+    pring("DEVEEEELOOOPPPPPPP");
+    while (1 == 1){
+        pring("HAND");
+    }
+}
