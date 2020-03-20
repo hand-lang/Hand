@@ -1,5 +1,5 @@
 # Hand, The language of the future
-A compiler written in ruby, target 32-bit ARM architecture.
+A compiler written in ruby, targets the 32-bit ARM architecture.
 
 ## To compile:
 `ruby ./bin/hand.rb ./pseudo_project/in.hd --pi`
