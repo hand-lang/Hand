@@ -6,7 +6,7 @@ A compiler written in ruby, targets the 32-bit ARM architecture.
 
 `./pseudo_project/in.hd` should be the path to your code.
 `--pi` will push the code to the configured raspberry pi.
-`--no-optimize` skips the postprocessor fixing your bad code.
+`--no-optimize` skips the postprocessor of doing small assembly optimizations for the code.
 
 ## Configure the raspberry pi
 The configuration has to be done manually for now, we have a *TODO* to automatize the process.  
